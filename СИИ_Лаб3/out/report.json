@@ -1,0 +1,80 @@
+{
+  "dataset_path": "data/Student_Performance.csv",
+  "shape": {
+    "rows": 10000,
+    "cols": 6
+  },
+  "dtypes": {
+    "Hours Studied": "int64",
+    "Previous Scores": "int64",
+    "Extracurricular Activities": "object",
+    "Sleep Hours": "int64",
+    "Sample Question Papers Practiced": "int64",
+    "Performance Index": "float64"
+  },
+  "na_counts": {
+    "Hours Studied": 0,
+    "Previous Scores": 0,
+    "Extracurricular Activities": 0,
+    "Sleep Hours": 0,
+    "Sample Question Papers Practiced": 0,
+    "Performance Index": 0
+  },
+  "target": "Hours Studied",
+  "feature_sets": {
+    "A": [
+      "Extracurricular Activities_Yes"
+    ],
+    "B": [
+      "Extracurricular Activities_Yes",
+      "Previous Scores"
+    ],
+    "C": [
+      "Previous Scores",
+      "Sleep Hours",
+      "Sample Question Papers Practiced",
+      "Performance Index",
+      "Extracurricular Activities_Yes"
+    ]
+  },
+  "results": {
+    "A": {
+      "name": "Model A",
+      "n_features": 1,
+      "beta_head": [
+        5.00024618414574,
+        0.029972200821248733
+      ],
+      "R2_train": 3.360323408096999e-05,
+      "R2_test": -0.001879215212991614
+    },
+    "B": {
+      "name": "Model B",
+      "n_features": 2,
+      "beta_head": [
+        4.999743446776693,
+        0.030993505786301702,
+        -0.023355479179674538
+      ],
+      "R2_train": 0.00011520096887496223,
+      "R2_test": -0.001504967541515967
+    },
+    "C": {
+      "name": "Model C",
+      "n_features": 5,
+      "beta_head": [
+        5.1159949204036375,
+        -5.7389249318296045,
+        -0.265072022404204,
+        -0.18031976935494767,
+        6.252573545726766,
+        -0.2051699754263785
+      ],
+      "R2_train": 0.9295257925540028,
+      "R2_test": 0.9282734712391126
+    }
+  },
+  "train_size": 8000,
+  "test_size": 2000,
+  "random_state": 42
+}
