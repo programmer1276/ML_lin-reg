@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -11,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-DATA_PATH = Path("data/Student_Performance.csv")  # ваш файл
+DATA_PATH = Path("data/Student_Performance.csv")  
 OUT_DIR = Path("out")
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
@@ -114,7 +111,6 @@ def as_py(x):
 
 def load_dataset(path: Path) -> pd.DataFrame:
     df = pd.read_csv(path)
-    # Иногда наборы имеют странные пробелы в именах — подчистим
     df = df.rename(columns={c: c.strip() for c in df.columns})
     return df
 
@@ -124,7 +120,6 @@ def infer_target(df: pd.DataFrame) -> str:
     candidates = [c for c in df.columns if "math" in c.lower() and "score" in c.lower()]
     if candidates:
         return candidates[0]
-    # fallback — первая числовая колонка
     numeric_cols = df.select_dtypes(include=[np.number]).columns.tolist()
     if not numeric_cols:
         raise ValueError("Не удалось определить целевой столбец.")
